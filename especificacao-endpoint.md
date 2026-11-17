@@ -42,3 +42,12 @@ def listar_tickets():
             "criado_em": t.criado_em.isoformat()
         } for t in tickets
     ]), 200
+```
+
+Mapeamento spec → código
+Direto: rota GET /tickets, filtro opcional, validação de status, resposta JSON, ordenação e lista vazia.
+
+Complementado manualmente: decorator de autenticação real, modelo Ticket, g.cliente_id, formato de datas, tratamento de erro padronizado e teste de isolamento entre clientes.
+
+Ponto ambíguo decidido por mim: “filtro opcional por status” foi interpretado como “se informado, substitui o padrão aberto”; sem essa decisão, a IA poderia gerar apenas status='aberto' e ignorar o filtro.
+
